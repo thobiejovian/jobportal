@@ -25,7 +25,9 @@
               <i class="fa fa-globe" aria-hidden="true"></i>
               &nbsp;Date:{{$job->created_at->diffForHumans()}}
               </td>
-              <td><button class="btn btn-success btn-sm">Apply</button></td>
+              <td>
+                <a class="btn btn-success btn-sm" href="{{route('jobs.show', [$job->id,$job->slug])}}">
+                Apply</a></td>
             </tr>
             @endforeach
           </tbody>

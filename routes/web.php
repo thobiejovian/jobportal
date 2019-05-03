@@ -17,3 +17,19 @@ Route::get('/', 'JobController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/jobs/{id}/{job}', 'JobController@show')->name('jobs.show');
+
+// Company Route
+Route::get('/company/{id}/{company}', 'CompanyController@index')->name('company.index');
+
+// User Profile
+Route::get('/user/profile', 'UserController@index')->name('home');
+
+Route::post('/user/profile/create', 'UserController@store')->name('profile.create');
+
+Route::post('/user/coverletter', 'UserController@coverletter')->name('cover.letter');
+
+Route::post('/user/resume', 'UserController@resume')->name('resume');
+
+Route::post('/user/avatar', 'UserController@avatar')->name('avatar');

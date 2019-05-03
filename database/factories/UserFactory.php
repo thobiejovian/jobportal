@@ -32,6 +32,7 @@ $factory->define(App\Company::class, function (Faker $faker) {
       'cname'=>$name=$faker->company,
       'slug'=>str_slug($name),
       'address'=>$faker->address,
+      'city'=>$faker->city,
       'phone'=>$faker->phoneNumber,
       'website'=>$faker->domainName,
       'logo'=>'images/avatar_man.jpg',
@@ -54,6 +55,7 @@ $factory->define(App\Job::class, function (Faker $faker) {
       'type'=>'Fulltime',
       'status'=>rand(0,1),
       'description'=>$faker->paragraph(rand(2,10)),
+      'roles'=>$faker->text,
       'last_date'=>$faker->DateTime
 
         ];
