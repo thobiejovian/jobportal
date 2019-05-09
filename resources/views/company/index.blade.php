@@ -7,7 +7,11 @@
 
           <div class="row headerJob mr-2" style="margin-right: 0; margin-left: 0;">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                <img src="/images/placeholder.jpg" alt="" class="img-fluid" style="height: 120px;">
+              @if(empty(Auth::user()->company->logo))
+              <img src="{{asset('images/placeholder.jpg')}}" class="img-fluid"  alt="">
+              @else
+                <img src="{{asset('uploads/logo')}}/{{Auth::user()->company->logo}}" class="img-fluid"  alt="">
+                @endif
             </div>
 
           <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 mb-3">
@@ -28,6 +32,26 @@
 
           <div class="row companyContainer">
 
+
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 mt-5 descJob" style="margin-right: 0; margin-left: 0; padding-right: 0; padding-left: 0;">
+              <div class="card" style="padding-right: 0; padding-left: 0;">
+              <div class="card-body">
+                @if(empty(Auth::user()->company->cover_photo))
+                <img src="{{asset('images/placeholder.jpg')}}" class="img-fluid"  alt="">
+                @else
+                  <img src="{{asset('uploads/cover_photo')}}/{{Auth::user()->company->cover_photo}}" class="img-fluid"  alt="">
+                  @endif
+
+                  <!-- <p>
+                    {{$company->description}}
+                  </p>
+                  <p>
+                    {{$company->description}}
+                  </p> -->
+                  </div>
+                  </div>
+
+              </div>
           <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 mt-5 descJob" style="margin-right: 0; margin-left: 0; padding-right: 0; padding-left: 0;">
             <div class="card" style="padding-right: 0; padding-left: 0;">
               <div class="card-header">
@@ -98,7 +122,7 @@
                                                                           @endforeach
                                                                       </div>
 
-                                                                      
+
 
 
 
@@ -132,7 +156,6 @@ ul {
 
 
 .companyContainer {
-  position: relative;
 }
 
 .headerJob {
@@ -150,10 +173,7 @@ ul {
 
 }
 
-.recentJob {
-  position: absolute;
-  top: -32%;
-}
+
 
 
 

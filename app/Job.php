@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use App\Company;
 class Job extends Model
 {
+
+    protected $fillable = ['user_id', 'company_id', 'title', 'slug', 'description', 'roles', 'category_id', 'position', 'address', 'type', 'status', 'last_date'];
+
+
     public function getRouteKeyName() {
       return 'slug';
     }

@@ -10,8 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Jobs Route
 Route::get('/', 'JobController@index');
+Route::get('/jobs/create', 'JobController@create')->name('job.create');
+Route::post('/jobs/create', 'JobController@store')->name('job.store');
+Route::get('/jobs/my-job',  'JobController@myjob')->name('my.job');
+
+Route::get('/jobs/{id}/edit', 'JobController@edit')->name('job.edit');
+
+Route::post('/jobs/{id}/edit', 'JobController@update')->name('job.update');
 
 
 Auth::routes();
@@ -23,8 +30,13 @@ Route::get('/jobs/{id}/{job}', 'JobController@show')->name('jobs.show');
 // Company Route
 Route::get('/company/{id}/{company}', 'CompanyController@index')->name('company.index');
 
+Route::get('company/create', 'CompanyController@create')->name('company.create');
+
+Route::post('company/create', 'CompanyController@store')->name('company.store');
+
+
 // User Profile
-Route::get('/user/profile', 'UserController@index')->name('home');
+Route::get('/user/profile', 'UserController@index')->name('user.profile');
 
 Route::post('/user/profile/create', 'UserController@store')->name('profile.create');
 
@@ -33,3 +45,16 @@ Route::post('/user/coverletter', 'UserController@coverletter')->name('cover.lett
 Route::post('/user/resume', 'UserController@resume')->name('resume');
 
 Route::post('/user/avatar', 'UserController@avatar')->name('avatar');
+
+// Route Employer
+
+Route::view('employer/register', 'auth.employer-register')->name('employer.register');
+
+Route::post('employer/register', 'EmployerRegisterController@register')->name('emp.register');
+
+
+// Company Photo Route
+
+Route::post('company/logo', 'CompanyController@logo')->name('employer.logo');
+
+Route::post('company/coverphoto', 'CompanyController@coverPhoto')->name('cover.photo');
