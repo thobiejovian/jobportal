@@ -6,12 +6,18 @@ use Illuminate\Http\Request;
 use App\Job;
 use App\Company;
 use App\Http\Requests\JobPostRequest;
+use Auth;
 class JobController extends Controller
 {
 
+  public function __construct(){
+    $this->middleware(['employer','verified'],['except'=>array('index','show','apply','allJobs')]);
+  }
+
   public function index(){
-    $jobs = Job::all();
-    return view('welcome',compact('jobs'));
+    $jobs = Job::latest()->limit(10)->where('status', 1)->get();
+    $companies = Company::latest()->limit(8)->get()->random(8);
+    return view('welcome',compact('jobs', 'companies'));
       }
 
   public function show($id,Job $job){
@@ -70,4 +76,47 @@ class JobController extends Controller
 
             return redirect()->back()->with('message', 'Your Job Succesfully Updated');
           }
+
+          public function apply(Request $request,$id){
+            $jobId = Job::find($id);
+            $jobId->users()->attach(Auth::user()->id);
+            return redirect()->back()->with('message','Application Sent!');
+          }
+
+          public function cancelApply(Request $request,$id){
+            $jobId = Job::find($id);
+            $jobId->users()->detach(Auth::user()->id);
+            return redirect()->back()->with('message','Application Canceled!');;
+          }
+
+
+          public function applicant(){
+            $applicants = Job::has('users')->where('user_id',auth()->user()->id)->get();
+            return view('jobs.applicants',compact('applicants'));
+        }
+
+        public function allJobs(Request $request){
+          $keyword = $request->get('title');
+
+          $type = $request->get('type');
+
+          $category = $request->get('category_id');
+
+          $address = $request->get('address');
+
+          if($keyword||$type||$category||$address){
+            $jobs = Job::where('title','LIKE','%'.$keyword.'%')
+                  ->orWhere('type',$type)
+                  ->orWhere('category_id',$category)
+                  ->orWhere('address',$address)
+                  ->paginate(10);
+            return view('jobs.alljobs', compact('jobs'));
+          }else{
+          $jobs = Job::latest()->paginate(10);
+          return view('jobs.alljobs',compact('jobs'));
+
+          }
+        }
+
+
 }

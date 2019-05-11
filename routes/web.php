@@ -20,8 +20,17 @@ Route::get('/jobs/{id}/edit', 'JobController@edit')->name('job.edit');
 
 Route::post('/jobs/{id}/edit', 'JobController@update')->name('job.update');
 
+Route::post('/applications/{id}', 'JobController@apply')->name('apply');
 
-Auth::routes();
+Route::get('/jobs/applications', 'JobController@applicant')->name('applicant');
+Route::get('/jobs/alljobs', 'JobController@allJobs')->name('alljobs');
+
+Auth::routes(['verify' => true]);
+
+// Save and Unsave jobs
+
+Route::post('/save/{id}','FavouriteController@saveJob');
+Route::post('/unsave/{id}','FavouriteController@unsaveJob');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -51,6 +60,8 @@ Route::post('/user/avatar', 'UserController@avatar')->name('avatar');
 Route::view('employer/register', 'auth.employer-register')->name('employer.register');
 
 Route::post('employer/register', 'EmployerRegisterController@register')->name('emp.register');
+
+
 
 
 // Company Photo Route

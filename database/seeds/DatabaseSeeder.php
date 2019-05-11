@@ -12,9 +12,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\User',10)->create();
-        factory('App\Company',10)->create();
-        factory('App\Job',10)->create();
+        factory('App\User',20)->create();
+        factory('App\Company',20)->create();
+        factory('App\Job',20)->create();
 
         $categories = [
 

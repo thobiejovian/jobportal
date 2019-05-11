@@ -15,7 +15,7 @@
           <tbody>
              @foreach($jobs as $job)
             <tr>
-              <td><img src="{{asset('images/placeholder.jpg')}}" width="80"></td>
+              <td><img src="{{asset('uploads/logo')}}/{{$job->company->logo}}" width="80"></td>
               <td>Position:{{$job->position}}
               <br>
               <i class="fas fa-user-clock" aria-hidden="true"></i>&nbsp;{{$job->type}}
@@ -33,6 +33,33 @@
           </tbody>
         </table>
     </div>
+
+    <div class="">
+      <a href="{{route('alljobs')}}"><button class="btn btn-success btn-lg" style="width: 100%;">Browse All Jobs</button></a>
+    </div>
+
+    <br><br>
+    <h1>Featured Company</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    @foreach($companies as $company)
+    <div class="col-md-3">
+      <div class="card">
+<img class="card-img-top img-fluid" src="{{asset('uploads/logo')}}/{{$company->logo}}">
+<div class="card-body">
+  <h5 class="card-title">{{str_limit($company->cname,20)}}</h5>
+  <p class="card-text">{{str_limit($company->description,30)}}</p>
+  <a href="{{route('company.index', [$company->id,$company->slug])}}" class="btn btn-primary">Visit Company</a>
+</div>
+</div>
+    </div>
+
+    @endforeach
+  </div>
+
 </div>
 @endsection
 

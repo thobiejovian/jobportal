@@ -22,6 +22,6 @@ class EmployerRegisterController extends Controller
         'slug'=>str_slug(request('cname'))
       ]);
 
-      return redirect()->to('login');
+      return redirect()->to('login')->with('message', 'Please verify your email, we have sent the link to your Email');
     }
 }

@@ -3,6 +3,11 @@
 @section('content')
         <div class="container">
         <div class="row" style="margin-right: 0; margin-left: 0;">
+          @if(Session::has('message'))
+          <div class="alert alert-success">
+            {{Session::get('message')}}
+          </div>
+          @endif
           <div class="row headerJob mr-2" style="margin-right: 0; margin-left: 0;">
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                 <img src="/images/placeholder.jpg" alt="" class="img-fluid" style="width: 140px; height: 120px;">
@@ -14,7 +19,7 @@
             <ul class="list-inline">
               <li class="list-inline-item">
               <span class="fas fa-map-marker-alt"></span>
-              <span>{{$job->company->city}}</span>
+              <span>{{$job->address}}</span>
               </li>
 
               <li class="list-inline-item">
@@ -29,11 +34,17 @@
             </ul>
           </div>
 
-          <div class="button-bar-container col-md-4 col-lg-4 col-xl-4" >
-               <button class="btn btn-primary applyJob btn-block">Apply</button>
+          <div class="button-bar-container col-md-4 col-lg-4 col-xl-4">
+
+            @if(Auth::check()&&Auth::user()->user_type=='jobseeker')
+            @if(!$job->checkApplication())
+            <apply-component :jobid={{$job->id}}></apply-component>
+               @endif
+
           </div>
           <div class="button-bar-container col-md-4 col-lg-4 col-xl-4" >
-               <button class="btn btn-info favoriteJob btn-block"><i class="fas fa-heart"></i> Save this Job</button>
+               <favourite-component :jobid={{$job->id}} :favourited={{$job->checkSaved()?'true':'false'}}></favourite-component>
+               @endif
           </div>
           <div class="button-bar-container col-md-2 col-lg-2 col-xl-2">
                <button class="btn btn-info shareBut  btn-block"><i class="fas fa-share-alt"></i></button>
@@ -74,9 +85,10 @@
           </div>
         </div>
 
-
-
-
+<!-- buat di lain hari -->
+<!-- @if(Auth::check()&&Auth::user()->user_type=='jobseeker')
+<button type="button" name="button"></button>
+@endif -->
 
         </div>
 @endsection
