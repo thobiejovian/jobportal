@@ -15,8 +15,8 @@ class JobController extends Controller
   }
 
   public function index(){
-    $jobs = Job::latest()->limit(10)->where('status', 1)->get();
-    $companies = Company::latest()->limit(8)->get()->random(8);
+    $jobs = Job::latest()->limit(6)->where('status', 1)->get();
+    $companies = Company::latest()->limit(4)->get()->random(4);
     return view('welcome',compact('jobs', 'companies'));
       }
 
