@@ -17,7 +17,8 @@ class JobController extends Controller
   public function index(){
     $jobs = Job::latest()->limit(6)->where('status', 1)->get();
     $companies = Company::latest()->limit(4)->get()->random(4);
-    return view('welcome',compact('jobs', 'companies'));
+    $spotlight = Job::limit(6)->where('status', 1)->get()->random(6);
+    return view('welcome',compact('spotlight','jobs', 'companies'));
       }
 
   public function show($id,Job $job){
