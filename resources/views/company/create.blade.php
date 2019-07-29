@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+
 <div class="container">
 	<div class="row">
       <!-- left column -->
@@ -93,7 +95,7 @@
 
 </form>
 
-      <div class="col-md-4 col-lg-4 col-xl-4">
+       <div class="col-md-4 col-lg-4 col-xl-4">
 
         <div class="card text-center">
        <div class="card-header">
@@ -109,16 +111,16 @@
 
 
 
-							            <!-- @if(!empty(Auth::user()->company->cover_photo))
+							             @if(!empty(Auth::user()->company->cover_photo))
 							            <p><a href="{{Storage::url(Auth::user()->company->resume)}}">Resume</a></p>
 
 							            @else
 							            <p>Please upload Resume</p>
-							            @endif -->
+							            @endif
             </div>
         </div>
 
-  <form action="{{route('cover.photo')}}" method="POST" enctype="multipart/form-data">@csrf
+   <form action="{{route('cover.photo')}}" method="POST" enctype="multipart/form-data">@csrf
         <div class="card text-center mt-4">
        <div class="card-header">
          <h4>Update Your Cover Photo</h4>
@@ -140,6 +142,8 @@
 </div>
 
 @endsection
+
+
 
 <style>
 

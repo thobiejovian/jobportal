@@ -23,9 +23,27 @@ class JobController extends Controller
 
   public function show($id,Job $job){
 
-        return view('jobs.show', compact('job'));
 
+
+        $jobs = Job::latest()->where('status', 1)->where('company_id',$job->company_id)->limit(4)->get();
+        $jobRecommendations = $this->jobRecommendations($job);
+        return view('jobs.show', compact('job', 'jobs', 'jobRecommendations'));
       }
+
+  public function jobRecommendations($job){
+    $data = [];
+
+    $jobBasedOnCategories = Job::latest()->where('status', 1)->where('category_id', $job->category_id)->where('id','!=',$job->id)->limit(6)->get();
+    array_push($data, $jobBasedOnCategories);
+    $jobBasedOnPosition = Job::latest()->where('status', 1)->where('position', 'LIKE', '%'.$job->position.'%')->where('id','!=',$job->id)->limit(6)->get();
+    array_push($data, $jobBasedOnPosition);
+
+    $collection = collect($data);
+    $unique = $collection->unique("id");
+    $jobRecommendations = $unique->values()->first();
+
+    return $jobRecommendations;
+  }
 
       public function create(){
 
@@ -52,6 +70,7 @@ class JobController extends Controller
                 'type'=>request('type'),
                 'status'=>request('status'),
                 'last_date'=>request('last_date'),
+                'contact'=>request('contact')
               ]);
 
               return redirect()->back()->with('message', 'Your Job has succesfully created');

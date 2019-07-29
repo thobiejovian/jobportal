@@ -30,7 +30,8 @@ class JobPostRequest extends FormRequest
             'address'=>'required',
             'position'=>'required',
             'type'=>'required',
-            'last_date'=>'required'
+            'last_date'=>'required',
+            'contact'=>'required'
         ];
     }
 }

@@ -1,41 +1,51 @@
 
-@extends('layouts.app')
+@extends('layouts.nav-landing-page')
 
 @section('content')
 <div class="container">
-  <div class="row section-first" style="margin-right: 0; margin-left: 0;">
-
-    <div class="row headerJob mr-2" style="margin-right: 0; margin-left: 0;">
-      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-        @if(empty($company->logo))
-        <img src="{{asset('images/placeholder.jpg')}}" class="img-fluid"  alt="">
-        @else
-        <img src="{{asset('uploads/logo')}}/{{$company->logo}}" class="img-fluid"  alt="">
-        @endif
-      </div>
-
-      <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 mb-3">
-        <h3 class="mb-5">{{$company->cname}}</h3>
-        <ul class="list-inline">
-          <li class="list-inline-item">
-            <span class="fas fa-map-marker-alt"></span>
-            <span>{{$company->city}}</span>
-          </li>
-
-          <!-- <li class="list-inline-item">
-          <span class="fas fa-clock"></span>
-          <span>{{$company->type}}</span>
-        </li> -->
-      </ul>
+  <div class="row section-first">
+    <div class="col-md-12">
+    <div class="card bg-white mb-3">
+      <div class="card-body">
+    <div class="row">
+    <div class="col-md-2 mt-1">
+        <img src="{{asset('uploads/logo')}}/{{$company->logo}}" alt="" class="img-fluid">
     </div>
-  </div>
+
+    <div class="col-md-10">
+    <a href="#" class="btn btn-success float-right">Create Job Agent</a>
+    <h5>{{$company->cname}}</h5>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+      <span class="fas fa-map-marker-alt"></span>
+      <span>{{$company->address}}</span>
+      </li>
+
+      <li class="list-inline-item">
+      <span class="fas fa-clock"></span>
+      <span>{{$company->website}}</span>
+      </li>
+
+      <li class="list-inline-item">
+      <span class="fas fa-calendar-alt"></span>
+      <span>{{$company->phone}}</span>
+      </li>
 
 
+
+
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+      </div>
+</div>
 
   <div class="row">
 
 
-    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 mt-5 descJob" style="margin-right: 0; margin-left: 0; padding-right: 0; padding-left: 0;">
+    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 mt-5 descJob">
       <div class="card" style="padding-right: 0; padding-left: 0;">
         <div class="card-body">
           @if(empty($company->cover_photo))
@@ -61,12 +71,7 @@
       <p>
         {{$company->description}}
       </p>
-      <!-- <p>
-      {{$company->description}}
-    </p>
-    <p>
-    {{$company->description}}
-  </p> -->
+
 </div>
 </div>
 
@@ -78,12 +83,7 @@
     <p>
       {{$company->description}}
     </p>
-    <!-- <p>
-    {{$company->description}}
-  </p>
-  <p>
-  {{$company->description}}
-</p> -->
+
 </div>
 </div>
 
@@ -111,7 +111,7 @@
         <li class="list-inline-item">  <img src="/images/placeholder.jpg" alt="" class="img-fluid mb-3 mt-3" style="width: 80px; height: 80px;"></li>
         <li class="list-inline-item">
           <span class="fas fa-map-marker-alt"></span>
-          <span>{{$company->city}}</span>
+          <span>{{$company->address}}</span>
         </li>
         <li class="list-inline-item">
           <span class="fas fa-calendar-alt"></span>
@@ -136,7 +136,7 @@
 </div>
 
 
-</div>
+
 </div>
 
 
@@ -148,38 +148,15 @@
 
 <style>
 
-li {
-  list-style: none;
-  padding-right: 10px;
-
-}
-
-ul {
-  padding-left: 0;
-
+main {
+  height: calc(100vh - 85px);
+  margin-top: 85px;
 }
 
 
-.companyContainer {
-}
 
-.headerJob {
-  border-style: solid;
-  border-width: 1px;
-  width: 1000px;
-  padding: 10px 20px;
-  border-color: rgb(215, 214, 215);
-}
 
-/* .descJob1 {
-top: -500px;
-
-}
-
-.descJob2 {
-top: -530px;
-
-} */
+</style>
 
 
 

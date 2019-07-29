@@ -1,6 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
+
+<script>
+	tinymce.init({
+			selector:	'#descTextArea',
+      menubar: false,
+      plugins: [
+    'advlist autolink lists link image charmap print preview anchor textcolor'
+  ],
+  toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat'
+	});
+
+</script>
+
+<script>
+	tinymce.init({
+			selector:	'#taskTextArea',
+      menubar: false,
+      plugins: [
+    'advlist autolink lists link image charmap print preview anchor textcolor'
+  ],
+  toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat'
+	});
+
+</script>
+
+<script>
+	tinymce.init({
+			selector:	'#contactTextArea',
+      menubar: false,
+      plugins: [
+    'advlist autolink lists link image charmap print preview anchor textcolor'
+  ],
+  toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat'
+	});
+
+</script>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -26,26 +62,6 @@
               @enderror
           </div>
 
-          <div class="form-group">
-              <label for="description">Description</label>
-              <textarea name="description" class="form-control @error('description') is-invalid @enderror">{{ $job->roles }}</textarea>
-
-              @error('description')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-          </div>
-
-          <div class="form-group">
-              <label for="role">Role</label>
-              <textarea name="roles" class="form-control @error('roles') is-invalid @enderror">{{ $job->roles }}</textarea>
-              @error('roles')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-          </div>
 
           <div class="form-group">
               <label for="category">Category</label>
@@ -90,6 +106,38 @@
                 </option>
               </select>
           </div>
+
+					<div class="form-group">
+							<label for="description">Description</label>
+							<textarea type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{ old('description') }}" id="descTextArea">{{ $job->description }}</textarea>
+							@error('description')
+									<span class="invalid-feedback" role="alert">
+											<strong>{{ $message }}</strong>
+									</span>
+							@enderror
+					</div>
+
+
+
+							<div class="form-group">
+									<label for="role">Task</label>
+									<textarea name="roles" class="form-control @error('roles') is-invalid @enderror" value="{{ old('roles') }}" id="taskTextArea">{{ $job->roles }}</textarea>
+									@error('roles')
+											<span class="invalid-feedback" role="alert">
+													<strong>{{ $message }}</strong>
+											</span>
+									@enderror
+							</div>
+
+					<div class="form-group">
+							<label for="contact">Contact</label>
+							<textarea name="contact" class="form-control @error('roles') is-invalid @enderror" value="{{ old('contact') }}" id="contactTextArea">{{ $job->contact }}</textarea>
+							@error('contact')
+									<span class="invalid-feedback" role="alert">
+											<strong>{{ $message }}</strong>
+									</span>
+							@enderror
+					</div>
 
           <div class="form-group">
               <label for="status">Status</label>
