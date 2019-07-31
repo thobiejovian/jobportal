@@ -40,7 +40,7 @@
                         </td>
                         <td>
                           <a class="btn btn-success btn-sm" href="{{route('jobs.show', [$job->id,$job->slug])}}">
-                          Apply</a>
+                          View</a>
                           <a class="btn btn-dark btn-sm" href="{{route('job.edit', [$job->id])}}">
                           Edit</a>
                         </td>

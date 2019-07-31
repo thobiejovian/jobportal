@@ -81,7 +81,7 @@
 
 
 
-            <img src="{{asset('uploads/cover_photo')}}/{{$job->company->cover_photo}}" alt="" class="img-fluid">
+              <img src="{{asset('uploads/cover_photo')}}/{{$job->company->cover_photo}}" alt="" class="img-fluid">
 
 
 

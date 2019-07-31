@@ -44,6 +44,13 @@ Route::get('company/create', 'CompanyController@create')->name('company.create')
 Route::post('company/create', 'CompanyController@store')->name('company.store');
 
 
+// Company Photo Route
+
+Route::post('company/logo', 'CompanyController@logo')->name('employer.logo');
+
+Route::post('company/coverphoto', 'CompanyController@coverPhoto')->name('cover.photo');
+
+
 // User Profile
 Route::get('/user/profile', 'UserController@index')->name('user.profile');
 
@@ -60,12 +67,3 @@ Route::post('/user/avatar', 'UserController@avatar')->name('avatar');
 Route::view('employer/register', 'auth.employer-register')->name('employer.register');
 
 Route::post('employer/register', 'EmployerRegisterController@register')->name('emp.register');
-
-
-
-
-// Company Photo Route
-
-Route::post('company/logo', 'CompanyController@logo')->name('employer.logo');
-
-Route::post('company/coverphoto', 'CompanyController@coverPhoto')->name('cover.photo');
