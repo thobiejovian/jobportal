@@ -132,8 +132,8 @@
 
 
 
-<div class="container mb-5">
-  <div class="row">
+<div class="container">
+  <div class="row" id="discover-jobs">
 
     <div class="col-lg-8 px-3">
       <h2 class="mb-5">Recent Jobs</h2>
@@ -220,7 +220,7 @@
                   </div>
                 </div>
 
-                <div class="container fourthSection mt-5 mb-5a">
+                <div class="container fourthSection mb-3">
                   <div class="row h-100  align-items-center">
                     <div class="rightColumn col-lg-6 col-xl-6 h-100">
 
@@ -236,7 +236,7 @@
 
                 <div class="container-fluid fifthSection p-0">
                   <div class="row text-center no-gutters">
-                    <div class="recruiter bg-success col-md-6">
+                    <div class="recruiter bg-success col-md-6 col-xs-6">
                       <div class="content-inner my-3 py-5 text-white ">
                         <h5>I'm</h5>
                         <h3>Recruiter</h3>
@@ -250,7 +250,7 @@
 
                     </div>
 
-                    <div class="jobseeker col-md-6 bg-info">
+                    <div class="jobseeker col-md-6 col-xs-6 bg-info">
                       <div class="content-inner py-5 my-3 text-white">
                         <h5>I'm</h5>
                         <h3>Jobseeker!</h3>

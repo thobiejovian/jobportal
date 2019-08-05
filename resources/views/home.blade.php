@@ -1,36 +1,109 @@
-@extends('layouts.app')
+@extends('layouts.nav-landing-page')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
-            @if(Auth::user()->user_type=='jobseeker')
-            @foreach($jobs as $job)
-            <div class="card">
-                <div class="card-header">{{$job->title}}</div>
+      @if(Auth::user()->user_type=='jobseeker' || Auth::user()->favourites== 'null')
 
 
-                <div class="card-body">
-                    <small class="badge badge-success">{{$job->position}}
-                </small>
-
-                   <p> {{$job->description}}</p>
-                </div>
-                <div class="card-footer">
-                    <span><a href="{{route('jobs.show',[$job->id,$job->slug])}}">Read</a></span>
-                    <span class="float-right">Last date:{{$job->last_date}}</span>
-                </div>
-
-            </div>
-            <br>
-            @endforeach
-            @else
-
-            You're logged in
 
 
-            @endif
+      <div class="col-md-6 my-auto">
+        <div class="card p-5">
+        <div class="card-body text-center">
+          <h3 class="mb-3">You Don't have any Saved Jobs</h3>
+          <a href="{{ url('/') . '#discover-jobs' }}" class="btn btn-info">Discover some new Jobs</a>
         </div>
-    </div>
+      </div>
+      </div>
+
+
+      <div class="col-md-6">
+      <div class="right-image-no-jobs">
+      </div>
+      </div>
+
+
+
+  @else
+
+        <div class="col-md-6">
+          <div class="card overflow-auto" id='saved-content'>
+            <div class="card-header"> <h3>Your Saved Jobs</h3></div>
+            @foreach($jobs as $job)
+            <div class="card-body">
+              <div class="row">
+
+                <div class="col-md-3">
+                  <img src="{{asset('uploads/logo')}}/{{$job->company->logo}}" alt="" class="img-fluid mt-2">
+                </div>
+                <div class="col-md-9">
+                  <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#">{{$job->position}}</a></li>
+                    <p class="m-0">{{$job->company->cname}}</p>
+                    <li class="list-inline-item">
+                      <span class="fas fa-map-marker-alt"></span>
+                      <span>{{$job->address}}</span>
+                    </li>
+                    <li class="list-inline-item">
+                      <span class="fas fa-calendar-alt"></span>
+                      <span>{{$job->created_at->diffForHumans()}}</span>
+                    </li>
+                  </ul>
+                  <a href="{{route('jobs.show', [$job->id,$job->slug])}}" class="btn btn-info">Show Jobs</a>
+                </div>
+
+              </div>
+            </div>
+            @endforeach
+          </div>
+
+        </div>
+
+        <div class="col-md-6">
+        <div class="right-image-saved-jobs">
+        </div>
+        </div>
+
+
+
+  @endif
+
 </div>
+</div>
+
+
+
 @endsection
+<style>
+
+main {
+  height: calc(100vh - 72.2px);
+  margin-top: 72.2px;
+}
+
+
+.right-image-saved-jobs{
+  background: url(../images/savedjobs.svg);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  position:relative;
+  height: 600px;
+}
+
+.right-image-no-jobs{
+  background: url(../images/nojobs.svg);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  position:relative;
+  height: 600px;
+}
+
+#saved-content {
+  height: 600px;
+}
+
+
+</style>
