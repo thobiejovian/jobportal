@@ -13,7 +13,7 @@
                 <div class="row">
                 @foreach($applicant->users as $user)
 
-                <div class="col-md-3">
+                <div class="col-md-2">
                   <img src="{{asset('uploads/avatar')}}/{{$user->profile->avatar}}" alt="" class="img-fluid mt-1">
                 </div>
                 <div class="col-md-9 my-auto">
