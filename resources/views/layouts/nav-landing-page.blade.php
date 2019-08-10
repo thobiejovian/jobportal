@@ -62,10 +62,9 @@
                   {{Auth::user()->name}}
                 @endif
 
-                  <span class="caret"></span>
               </a>
 
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                 @if(Auth::user()->user_type=='employer')
 
@@ -122,7 +121,7 @@
 
 </nav>
 
-<main class="py-4 align-items-center justify-content-center">
+<main class="align-items-center justify-content-center">
     @yield('content')
 </main>
 </div>
@@ -143,7 +142,7 @@
 }
 
 .changeColor {
-  background-color: #51b5da !important;
+  background-color: #b8cfd7 !important;
 
 }
 
@@ -151,7 +150,7 @@
   color: #0d0b0b !important;
   font-weight: 800;
   font-size: 2em;
-  margin-left: 30px;
+  margin-right: 40px;
   text-transform: uppercase;
   font-style: italic;
   position: relative;
@@ -183,7 +182,7 @@ nav a::before {
 }
 
 nav a:hover::before {
-  width: 80%;
+  width: 50%;
 }
 
 

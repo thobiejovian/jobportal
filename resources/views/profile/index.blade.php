@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nav-landing-page')
 
 @section('content')
 <div class="container">
@@ -151,6 +151,12 @@
 @endsection
 
 <style>
+
+
+main {
+  height: calc(100vh - 72.2px);
+  margin-top: 72.2px;
+}
 
 
 

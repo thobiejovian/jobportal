@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Job;
 use App\Company;
 use App\Http\Requests\JobPostRequest;
+use App\Category;
 use Auth;
 class JobController extends Controller
 {
@@ -16,9 +17,11 @@ class JobController extends Controller
 
   public function index(){
     $jobs = Job::latest()->limit(6)->where('status', 1)->get();
+    $categories = Category::with('jobs')->get();
+
     $companies = Company::latest()->limit(4)->get()->random(4);
     $spotlight = Job::limit(6)->where('status', 1)->get()->random(6);
-    return view('welcome',compact('spotlight','jobs', 'companies'));
+    return view('welcome',compact('spotlight','jobs', 'companies','categories'));
       }
 
   public function show($id,Job $job){

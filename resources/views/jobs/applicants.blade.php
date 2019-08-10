@@ -36,7 +36,7 @@
                     </li>
                     <li class="list-inline-item">
                       <a class="btn btn-sm btn-dark ml-2" href="{{Storage::url($user->profile->cover_letter)}}">View Cover Letter</a>
-                    </li>
+                    </li>                                       
                   </ul>
                 </div>
             @endforeach

@@ -4,55 +4,9 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-3 left-sidebar">
-			<ul class="list-group">
-				<li class="list-group-item"><a href="#" class="text-success">Company Logo</a></li>
-				<li class="list-group-item">list</li>
-				<li class="list-group-item">list</li>
-				<li class="list-group-item">list</li>
-			</ul>
-		</div>
-		<div class="col-md-9 right-sidebar">
-			<div class="card">
-				<div class="card-header">
-					<h3>Your Company Logo</h3>
-				</div>
-				<div class="card-body">
-					<div class="row">
-						<div class="col-md-3">
-							@if(empty(Auth::user()->company->logo))
-			        <img src="{{asset('images/placeholder.jpg')}}" class="img-fluid"  alt="">
-			        @else
-			          <img src="{{asset('uploads/logo')}}/{{Auth::user()->company->logo}}" class="img-fluid"  alt="">
-			        @endif
-						</div>
-
-					<div class="col-md-8">
-						<form action="{{route('employer.logo')}}" method="POST" enctype="multipart/form-data">@csrf
-							<div class="input-group">
-  <div class="form-group">
-    <input type="file" class="form-control-file" id="inputGroupFile01"
-      aria-describedby="inputGroupFileAddon01" name="logo">
-    
-			<button class="btn btn-info" type="submit">Upload</button>
-  </div>
-
-</div>
-						</form>
-					</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 
-<!-- <div class="container">
-	<div class="row">
-
-
-      <div class="col-md-2 text-center">
+      <div class="col-md-3 text-center">
         @if(empty(Auth::user()->company->logo))
         <img src="{{asset('images/placeholder.jpg')}}" class="img-fluid"  alt="">
         @else
@@ -81,7 +35,7 @@
 
 
 
-      <div class="col-md-5 col-lg-5 col-xl-5 personal-info">
+      <div class="col-md-6 personal-info">
         <div class="card">
 
 
@@ -148,7 +102,7 @@
 
 </form>
 
-       <div class="col-md-4 col-lg-4 col-xl-4">
+       <div class="col-md-3">
 
         <div class="card text-center">
        <div class="card-header">
@@ -161,15 +115,6 @@
               <p>Website: <a href="{{Auth::user()->company->website}}">{{Auth::user()->company->website}}</a></p>
               <p>Slogan: {{Auth::user()->company->slogan}}</p>
 							<p>Company Page: <a href="company/{{Auth::user()->company->slug}}">View</a> </p>
-
-
-
-							             @if(!empty(Auth::user()->company->cover_photo))
-							            <p><a href="{{Storage::url(Auth::user()->company->resume)}}">Resume</a></p>
-
-							            @else
-							            <p>Please upload Resume</p>
-							            @endif
             </div>
         </div>
 
@@ -192,7 +137,7 @@
 
 
   </div>
-</div> -->
+</div>
 
 @endsection
 

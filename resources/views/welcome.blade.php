@@ -4,7 +4,7 @@
 
 
 <div class="container firstSection">
-  <div class="row h-75 align-items-center">
+  <div class="row h-100 align-items-center">
     <div class="gambar-kiri col-lg-6 col-xl-6">
       <h5 class="font-roboto">We have <span class="redText">100.000</span> great job offers you deserve!</h5>
       <h1 class="font-source">Easiest way to find your dream job</h1>
@@ -49,90 +49,45 @@
 
 
 
-<div class="container py-5 my-5">
+<div class="container categoriesJob py-5 my-4">
   <div class="section-header text-center">
     <h2 class="section-title">Browse Categories</h2>
     <p class="mb-5">Most popular categories of portal, sorted by popularity</p>
   </div>
   <div class="row justify-content-center text-center">
+    @foreach($categories as $category)
     <div class="col-lg-3 col-md-6 col-xs-12 f-category p-5 border border-white bg-info">
-      <a href="browse-jobs.html">
+      <a href="{{route('category.index',[$category->id])}}">
         <div class="icon">
-          <i class="fab fa-3x text-white mb-3 fa-python" style="width: 40px;"></i>
-        </div>
-        <h3 class="text-body">Python</h3>
-        <p class="text-white m-0">(4286 jobs)</p>
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12 f-category p-5 border border-white bg-info">
-      <a href="browse-jobs.html">
-        <div class="icon">
+          @if($category->name=='Python')
+          <i class="fab fa-3x text-white mb-3 fa-python"></i>
+          @elseif($category->name=='Data Science')
           <i class="fas fa-3x text-white mb-3 fa-database"></i>
-        </div>
-        <h3 class="text-body">Data Science</h3>
-        <p class="text-white m-0">(2000 jobs)</p>
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12 f-category p-5 border border-white bg-info">
-      <a href="browse-jobs.html">
-        <div class="icon">
-          <i class="fab fa-3x text-white mb-3 fa-js"></i>
-        </div>
-        <h3 class="text-body">Javascript</h3>
-        <p class="text-white m-0">(1450 jobs)</p>
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12 f-category p-5 border border-white bg-info">
-      <a href="browse-jobs.html">
-        <div class="icon">
+          @elseif($category->name=='Java')
           <i class="fab fa-3x text-white mb-3 fa-java"></i>
-        </div>
-        <h3 class="text-body">Java</h3>
-        <p class="text-white m-0">(5100 jobs)</p>
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12 f-category p-5 border border-white bg-info">
-      <a href="browse-jobs.html">
-        <div class="icon">
-          <i class="fas fa-3x text-white mb-3 fa-shield-alt"></i>
-        </div>
-        <h3 class="text-body">Data Security</h3>
-        <p class="text-white m-0">(5079 jobs)</p>
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12 f-category p-5 border border-white bg-info">
-      <a href="browse-jobs.html">
-        <div class="icon">
+          @elseif($category->name=='Javascript')
+          <i class="fab fa-3x text-white mb-3 fa-js"></i>
+          @elseif($category->name=='React.js')
           <i class="fab fa-3x text-white mb-3 fa-react"></i>
-        </div>
-        <h3 class="text-body">React.js</h3>
-        <p class="text-white m-0">(3235 jobs)</p>
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12 f-category p-5 border border-white bg-info">
-      <a href="browse-jobs.html">
-        <div class="icon">
+          @elseif($category->name=='Php/Laravel')
           <i class="fab fa-3x text-white mb-3 fa-laravel"></i>
-        </div>
-        <h3 class="text-body">Php/Laravel</h3>
-        <p class="text-white m-0">(1800 jobs)</p>
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12 f-category p-5 border border-white bg-info">
-      <a href="browse-jobs.html">
-        <div class="icon">
+          @elseif($category->name=='Web Developer')
           <i class="far fa-3x text-white mb-3 fa-file-code"></i>
+          @else($category->name=='Data Security')
+          <i class="fas fa-3x text-white mb-3 fa-shield-alt"></i>
+          @endif
         </div>
-        <h3 class="text-body">Web Developer</h3>
-        <p class="text-white m-0">(4286 jobs)</p>
+        <h3 class="text-body">{{$category->name}}</h3>
+        <p class="text-white m-0">{{$category->jobs->count()}} Jobs</p>
       </a>
     </div>
+    @endforeach
   </div>
 </div>
 
 
 
-<div class="container">
+<div class="container mt-5">
   <div class="row" id="discover-jobs">
 
     <div class="col-lg-8 px-3">
@@ -221,7 +176,7 @@
                 </div>
 
                 <div class="container fourthSection mb-3">
-                  <div class="row h-100  align-items-center">
+                  <div class="row h-75 align-items-center">
                     <div class="rightColumn col-lg-6 col-xl-6 h-100">
 
                     </div>
@@ -265,6 +220,90 @@
                     </div>
                   </div>
                 </div>
+
+
+
+                <div class="container">
+                  <div class="row h-75 align-items-center">
+                    <div class="leftColumnApp col-md-6">
+                      <h1 class="font-source mb-5">Subscribe Our Newsletter</h1>
+                      <h5 class="mb-5 font-roboto text-muted">EasyJob newsletters are designed to help you progress in your career, improve your CV and make you more attractive to recruiters.</h5>
+                        <div class="row">
+                          <div class="col-md-8">
+                            <input class="form-control" type="email" name="email" autocomplete="on" placeholder="Enter your email..." value="">
+                          </div>
+                          <div class="col-md-4 mb-4">
+                            <button type="submit" name="button" class="btn btn-success btn-block">Create Job Agent</button>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <p style="font-size: 0.8em;" class="text-muted">By clicking above you agree to the EasyJob Terms of Use. Read our full Data Protection Policy here. We will send you matching jobs by mail. You may unsubscribe at any time from EasyJob emails and services.</p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="rightColumnApp col-lg-6 col-xl-6 h-100">
+
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- Footer -->
+<footer class="page-footer font-small cyan darken-3 text-center bg">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Grid row-->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-12 py-5 my-auto">
+        <div class="mb-3 flex-center">
+
+          <!-- Facebook -->
+          <a class="fb-ic">
+            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic">
+            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Google +-->
+          <a class="gplus-ic">
+            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic">
+            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic">
+            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Pinterest-->
+          <a class="pin-ic">
+            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+          </a>
+        </div>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-1">© 2019 Copyright:
+    <a href="#"> thobiejovian</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
                 @endsection
 
 <style>
@@ -274,8 +313,19 @@
     background-size: 100%;
     background-position: center;
   }
+
+   a:hover {
+    text-decoration: none!important;
+  }
   .rightColumn {
     background: url(images/findjob.svg);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+  }
+
+  .rightColumnApp{
+    background: url(images/buttonapp.svg);
     background-repeat: no-repeat;
     background-size: 80%;
     background-position: center;
@@ -289,5 +339,9 @@
   .img-thumb-right {
     bottom: 0;
     right: 30;
+  }
+
+  footer {
+    background-color: #b8cfd7;
   }
 </style>

@@ -24,6 +24,7 @@ Route::post('/applications/{id}', 'JobController@apply')->name('apply');
 
 Route::get('/jobs/applications', 'JobController@applicant')->name('applicant');
 Route::get('/jobs/alljobs', 'JobController@allJobs')->name('alljobs');
+Route::get('/category/{id}','CategoryController@index')->name('category.index');
 
 Auth::routes(['verify' => true]);
 
