@@ -49,7 +49,7 @@
             @endif
           </div>
           <button type="submit" class="btn mt-5 btn-primary btn-custom btn-block rounded-pill btn-lg" name="button">Login</button>
-          <p class="mt-3">Don't have an account <a href="#"><strong>Register Now</strong></a></p>
+          <p class="mt-3">Don't have an account <a href="{{ route('register') }}"><strong>Register Now</strong></a></p>
       </div>
     </form>
   </div>

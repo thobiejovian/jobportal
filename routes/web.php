@@ -23,7 +23,7 @@ Route::post('/jobs/{id}/edit', 'JobController@update')->name('job.update');
 Route::post('/applications/{id}', 'JobController@apply')->name('apply');
 
 Route::get('/jobs/applications', 'JobController@applicant')->name('applicant');
-Route::get('/jobs/alljobs', 'JobController@allJobs')->name('alljobs');
+Route::get('/jobs/alljobs','JobController@allJobs')->name('alljobs');
 Route::get('/category/{id}','CategoryController@index')->name('category.index');
 
 Auth::routes(['verify' => true]);
@@ -68,3 +68,7 @@ Route::post('/user/avatar', 'UserController@avatar')->name('avatar');
 Route::view('employer/register', 'auth.employer-register')->name('employer.register');
 
 Route::post('employer/register', 'EmployerRegisterController@register')->name('emp.register');
+
+// Route Autocomplete
+
+Route::get('/jobs/search','JobController@searchJobs');

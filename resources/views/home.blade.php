@@ -75,8 +75,8 @@
 <style>
 
 main {
-  height: calc(100vh - 72.2px);
-  margin-top: 72.2px;
+  height: calc(100vh - 120px);
+  margin-top: 120px;
 }
 
 

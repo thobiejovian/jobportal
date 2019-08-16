@@ -5,20 +5,19 @@
 
 <div class="container firstSection">
   <div class="row h-100 align-items-center">
-    <div class="gambar-kiri col-lg-6 col-xl-6">
+    <div class="gambar-kiri col-md-6 col-lg-6 col-xl-6">
       <h5 class="font-roboto">We have <span class="redText">100.000</span> great job offers you deserve!</h5>
       <h1 class="font-source">Easiest way to find your dream job</h1>
       <form action="{{route('alljobs')}}" method="GET">
         <div class="form-row align-items-center my-4">
           <div class="col-lg-5 my-1">
-            <label class="sr-only" for="inlineFormInputName">Name</label>
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text">
                   <i class="fa fa-key"></i>
                 </div>
               </div>
-              <input placeholder="Keyword or Company" type="text" name="title" class="form-control">
+              <input placeholder="Keyword or Company" type="text" name="position" class="form-control">
             </div>
           </div>
           <div class="col-lg-5 my-1">
@@ -26,7 +25,7 @@
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <i class="fa fa-search"></i>
+                  <i class="fa fa-map-marker-alt"></i>
                 </div>
               </div>
               <input placeholder="City" type="text" name="address" class="form-control">
@@ -39,7 +38,7 @@
         </div>
       </form>
     </div>
-    <div class="gambar-kanan col-lg-6 col-xl-6 h-75">
+    <div class="gambar-kanan col-md-6 col-lg-6 col-xl-6 h-75">
 
     </div>
   </div>
@@ -177,10 +176,10 @@
 
                 <div class="container fourthSection mb-3">
                   <div class="row h-75 align-items-center">
-                    <div class="rightColumn col-lg-6 col-xl-6 h-100">
+                    <div class="rightColumn col-md-6 col-lg-6 col-xl-6 h-100">
 
                     </div>
-                    <div class="leftColumn col-lg-6 col-xl-6">
+                    <div class="leftColumn col-md-6 col-lg-6 col-xl-6">
                       <h1 class="ml-2 font-source mb-5">Million of Jobs, Find the one that's right for you!</h1>
                       <h5 class="ml-2  font-roboto text-muted">Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 600,000 companies worldwide. The right job is out there.</h5>
                     </div>
@@ -229,11 +228,11 @@
                       <h1 class="font-source mb-5">Subscribe Our Newsletter</h1>
                       <h5 class="mb-5 font-roboto text-muted">EasyJob newsletters are designed to help you progress in your career, improve your CV and make you more attractive to recruiters.</h5>
                         <div class="row">
-                          <div class="col-md-8">
+                          <div class="col-md-6 col-lg-8 col-xl-8">
                             <input class="form-control" type="email" name="email" autocomplete="on" placeholder="Enter your email..." value="">
                           </div>
-                          <div class="col-md-4 mb-4">
-                            <button type="submit" name="button" class="btn btn-success btn-block">Create Job Agent</button>
+                          <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                            <button type="submit" name="button" class="btn button-responsive btn-success btn-block">Create Job Agent</button>
                           </div>
                         </div>
                         <div class="row">
@@ -242,7 +241,7 @@
                           </div>
                         </div>
                     </div>
-                    <div class="rightColumnApp col-lg-6 col-xl-6 h-100">
+                    <div class="rightColumnApp col-md-6 col-lg-6 col-xl-6 h-100">
 
                     </div>
                   </div>
@@ -344,4 +343,18 @@
   footer {
     background-color: #b8cfd7;
   }
+
+  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .fas {
+      font-size: 70px !important;
+    }
+    .btn-floating i {
+      font-size: 50px !important;
+    }
+
+    .button-responsive{
+      height: 40px !important;
+
+    }
+}
 </style>

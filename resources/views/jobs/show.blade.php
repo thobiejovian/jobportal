@@ -244,8 +244,8 @@
 <style>
 
 main {
-  height: calc(100vh - 85px);
-  margin-top: 85px;
+  height: calc(100vh - 120px);
+  margin-top: 120px;
 }
 
 .shareBut{

@@ -18,7 +18,6 @@ class JobController extends Controller
   public function index(){
     $jobs = Job::latest()->limit(6)->where('status', 1)->get();
     $categories = Category::with('jobs')->get();
-
     $companies = Company::latest()->limit(4)->get()->random(4);
     $spotlight = Job::limit(6)->where('status', 1)->get()->random(6);
     return view('welcome',compact('spotlight','jobs', 'companies','categories'));
@@ -119,27 +118,45 @@ class JobController extends Controller
         }
 
         public function allJobs(Request $request){
-          $keyword = $request->get('title');
 
-          $type = $request->get('type');
+         //front search
+            // $search = $request->get('search');
+            // $addressFront = $request->get('address');
+            // if($search || $addressFront){
+            //    $jobs = Job::where('position','LIKE','%'.$search.'%')
+            //             ->orWhere('title','LIKE','%'.$search.'%')
+            //             ->orWhere('type','LIKE','%'.$search.'%')
+            //             ->orWhere('address','LIKE','%'.$addressFront.'%')
+            //             ->paginate(20);
+            //
+            //     return view('jobs.alljobs',compact('jobs'));
+            //
+            // }
 
-          $category = $request->get('category_id');
 
-          $address = $request->get('address');
 
-          if($keyword||$type||$category||$address){
-            $jobs = Job::where('title','LIKE','%'.$keyword.'%')
-                  ->orWhere('type',$type)
-                  ->orWhere('category_id',$category)
-                  ->orWhere('address',$address)
-                  ->paginate(10);
-            return view('jobs.alljobs', compact('jobs'));
-          }else{
-          $jobs = Job::latest()->paginate(10);
-          return view('jobs.alljobs',compact('jobs'));
 
-          }
-        }
+           $keyword = $request->get('position');
+           $type = $request->get('type');
+           $category = $request->get('category_id');
+           $address = $request->get('address');
+           if($keyword || $address){
+            $jobs = Job::where('position','LIKE','%'.$keyword.'%')
+                    ->where('address','LIKE','%'.$address.'%')
+                    ->paginate(20);
+                    return view('jobs.alljobs',compact('jobs'));
+           }
+         else{
+
+              $jobs = Job::latest()->paginate(20);
+              return view('jobs.alljobs',compact('jobs'));
+      }
+
+
+
+    }
+
+
 
 
 }

@@ -5,7 +5,7 @@
 	<div class="row">
       <!-- left column -->
 
-      <div class="col-md-3 text-center">
+      <div class="col-md-4 text-center">
         @if(empty(Auth::user()->profile->avatar))
         <img src="{{asset('images/placeholder.jpg')}}" class="img-fluid"  alt="">
         @else
@@ -13,7 +13,7 @@
           @endif
   <form action="{{route('avatar')}}" method="POST" enctype="multipart/form-data">@csrf
 
-    <div class="card mt-5">
+    <div class="card mt-3">
       <div class="card-header">Update Profile Picture
       </div>
       <div class="card-body">
@@ -26,7 +26,8 @@
 
 
       <!-- edit form column -->
-      <div class="col-md-5 col-lg-5 col-xl-5 card personal-info">
+      <div class="col-md-4 col-lg-4 col-xl-4 personal-info">
+				<div class="card text-center">
         <div class="card-header">
         <h3>Update Your Profile</h3>
         </div>
@@ -65,9 +66,10 @@
           {{Session::get('message')}}
         </div>
         @endif
+				</form>
+				</div>
       </div>
 
-</form>
 
       <div class="col-md-4 col-lg-4 col-xl-4">
 
@@ -101,7 +103,10 @@
             @endif
             </div>
         </div>
-
+				</div>
+				</div>
+	<div class="row">
+	<div class="col-md-6">
   <form action="{{route('cover.letter')}}" method="POST" enctype="multipart/form-data">@csrf
         <div class="card text-center mt-4">
        <div class="card-header">
@@ -118,7 +123,9 @@
             </div>
         </div>
 </form>
+</div>
 
+<div class="col-md-6">
 <form action="{{route('resume')}}" method="POST" enctype="multipart/form-data">@csrf
           <div class="card text-center mt-4">
          <div class="card-header">
@@ -137,15 +144,10 @@
               </div>
           </div>
 
-      </div>
-      </form>
 
-
-
-
-
-
-  </div>
+</form>
+</div>
+</div>
 </div>
 
 @endsection

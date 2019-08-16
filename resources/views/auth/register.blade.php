@@ -4,7 +4,7 @@
 <div class="container user-registration">
 <div class="row h-100">
 <div class="col-md-5 my-auto">
-<h2 class="form-title mb-5 text-center">Sign up</h2>
+<h2 class="form-title mb-5 text-center">JobSeeker Sign up</h2>
   <form method="POST" action="{{ route('register') }}">
       @csrf
       <input type="hidden" name="user_type" value="jobseeker">
@@ -60,7 +60,7 @@
 <div class="right-image"  style="min-height:300px">
 </div>
 <div class="signup-link text-center">
-  <a href="#" class="">I am already member</a>
+  <a href="{{ route('employer.register') }}" class="">Click here for Employer signup</a>
 </div>
 </div>
 

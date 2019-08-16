@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nav-landing-page')
 
 @section('content')
 <div class="container">
@@ -8,19 +8,24 @@
       <div class="form-inline">
           <div class="form-group">
               <label>Keyword&nbsp;</label>
-              <input type="text" name="title" class="form-control">&nbsp;&nbsp;&nbsp;
+              <input type="text" name="position" class="form-control">&nbsp;&nbsp;&nbsp;
           </div>
           <div class="form-group">
-              <label>Employment type&nbsp;</label>
+              <label>address</label>
+              <input type="text" name="address" class="form-control">&nbsp;&nbsp;
+          </div>
+          <div class="form-group">
+              <label>Employment &nbsp;</label>
               <select class="form-control" name="type">
                       <option value="">-select-</option>
-                      <option value="fulltime">fulltime</option>
-                      <option value="parttime">parttime</option>
-                      <option value="casual">casual</option>
+                      <option value="Fulltime">fulltime</option>
+                      <option value="Parttime">parttime</option>
+                      <option value="Internship">internship</option>
+
                   </select>
                   &nbsp;&nbsp;
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
               <label>category</label>
               <select name="category_id" class="form-control">
                   <option value="">-select-</option>
@@ -30,12 +35,9 @@
                       @endforeach
                   </select>
                   &nbsp;&nbsp;
-          </div>
+          </div> -->
 
-          <div class="form-group">
-              <label>address</label>
-              <input type="text" name="address" class="form-control">&nbsp;&nbsp;
-          </div>
+
 
           <div class="form-group">
               <button type="submit" class="btn btn-outline-success">Search</button>
@@ -81,12 +83,10 @@
 @endsection
 
 <style>
-.fa {
-  color: #4121D7;
-}
 
-.fas {
-  color: #4121D7;
+main {
+  height: calc(100vh - 120px);
+  margin-top: 120px;
 }
 
 </style>

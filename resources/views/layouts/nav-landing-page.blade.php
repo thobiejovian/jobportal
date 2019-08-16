@@ -13,9 +13,10 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/scriptfornav.js') }}" defer></script>
 
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Source+Sans+Pro&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -25,12 +26,17 @@
 <body>
     <div id="app">
 
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light navbar-laravel" id="navbar">
+    <nav class="navbar fixed-top navbar-expand-md  navbar-expand-lg navbar-light navbar-laravel" id="navbar">
 
 
       <div class="collapse navbar-collapse ml-4" id="navbarSupportedContent">
 
       <a class="navbar-brand " href="{{ url('/') }}">EasyJob</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+    aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"></button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent1">
 
         <ul class="navbar-nav pullNavbar ml-auto">
 
@@ -112,6 +118,8 @@
 
         </ul>
 
+        </div>
+
 
 
     </div>
@@ -183,6 +191,17 @@ nav a::before {
 
 nav a:hover::before {
   width: 50%;
+}
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .navbar a {
+    font-size: 1.4em;
+  }
+
+  .pullNavbar {
+    margin-right: 0;
+  }
 }
 
 
