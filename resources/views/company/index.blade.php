@@ -116,7 +116,7 @@
         </div>
         <div class="col-md-9">
           <ul class="list-inline">
-            <li class="list-inline-item mb-2"><a href="#">{{$job->position}}</a></li>
+            <li class="list-inline-item mb-2"><a href="{{route('jobs.show', [$job->id,$job->slug])}}">{{$job->position}}</a></li>
             <li class="list-inline-item">
               <span class="fas fa-map-marker-alt"></span>
               <span>{{$company->address}}</span>

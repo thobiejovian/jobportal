@@ -66,8 +66,8 @@
           <i class="fab fa-3x text-white mb-3 fa-java"></i>
           @elseif($category->name=='Javascript')
           <i class="fab fa-3x text-white mb-3 fa-js"></i>
-          @elseif($category->name=='React.js')
-          <i class="fab fa-3x text-white mb-3 fa-react"></i>
+          @elseif($category->name=='Project Manager')
+          <i class="fas fa-tasks"></i>
           @elseif($category->name=='Php/Laravel')
           <i class="fab fa-3x text-white mb-3 fa-laravel"></i>
           @elseif($category->name=='Web Developer')

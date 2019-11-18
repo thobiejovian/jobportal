@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.nav-landing-page')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+                <div class="card-header">{{ __('PLease Verify Your Email Address') }}</div>
 
                 <div class="card-body">
                     @if (session('resent'))
@@ -22,3 +22,12 @@
     </div>
 </div>
 @endsection
+
+<style media="screen">
+
+
+main {
+  height: calc(100vh - 120px);
+  margin-top: 120px;
+}
+</style>

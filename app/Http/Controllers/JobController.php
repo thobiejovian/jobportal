@@ -8,6 +8,8 @@ use App\Company;
 use App\Http\Requests\JobPostRequest;
 use App\Category;
 use Auth;
+use Charts;
+use DB;
 class JobController extends Controller
 {
 
@@ -154,6 +156,41 @@ class JobController extends Controller
 
 
 
+    }
+
+    public function overviewJobs(){
+      $catCharts = DB::table('jobs')
+            ->leftJoin('categories', 'jobs.category_id', '=', 'categories.id')
+            ->where('user_id',auth()->user()->id)
+            ->get();
+            $users = Job::where('user_id',auth()->user()->id)->get();
+            $chart = Charts::database($users, 'bar', 'highcharts')
+
+            			      ->title("Your posted Job Monthly")
+
+            			      ->elementLabel("Total Job")
+
+            			      ->dimensions(1000, 500)
+
+            			      ->responsive(true)
+
+            			      ->groupByMonth(date('Y'), true);
+
+
+            $categoryChart = Charts::database($catCharts, 'bar', 'highcharts')
+
+      			      ->title("Your posted jobs by category")
+
+      			      ->elementLabel("Total Jobs")
+
+      			      ->dimensions(1000, 500)
+
+      			      ->responsive(true)
+
+      			      ->groupBy('name');
+
+
+      return view('jobs.overview',compact('chart','categoryChart'));
     }
 
 

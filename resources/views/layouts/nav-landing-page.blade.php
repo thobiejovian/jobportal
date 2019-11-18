@@ -88,6 +88,11 @@
                    >
                     {{ __('Applicants') }}
                 </a>
+
+                <a class="dropdown-item" href="{{ route('overview') }}"
+                   >
+                    {{ __('Overview') }}
+                </a>
                 @else
 
                 <a class="dropdown-item" href="{{ route('user.profile') }}"

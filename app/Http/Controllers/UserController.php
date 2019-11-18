@@ -39,15 +39,20 @@ class UserController extends Controller
         return redirect()->back()->with('message', 'Your Cover Letter Succesfuly Updated');
     }
 
-    public function resume(Request $request) {
-      $user_id = auth()->user()->id;
-      $resume = $request->file('resume')->store('public/files');
-      Profile::where('user_id',$user_id)->update([
-        'resume'=>$resume
-      ]);
+    public function resume(Request $request){
+        $this->validate($request,[
+            'resume'=>'required|mimes:pdf,doc,docx|max:20000'
+        ]);
+          $user_id = auth()->user()->id;
+          $resume = $request->file('resume')->store('public/files');
+            Profile::where('user_id',$user_id)->update([
+              'resume'=>$resume
+            ]);
+        return redirect()->back()->with('message','Resume Sucessfully Updated!');
 
-        return redirect()->back()->with('message', 'Your Resume Succesfuly Updated');
-    }
+
+
+   }
 
     public function avatar(Request $request) {
       $user_id = auth()->user()->id;
