@@ -1,16 +1,6 @@
 ## Easy Job 
 
-This is my first Fullstack Website untuk university proyek dan saya terus improve hingga menjadi full Web application. 
-
-version 1 anda bisa lihat disini Link.. 
-
-
-## EasyJob features
-
-at the moment. 
-User/Jobseeker bisa search job and based on the city/address, if User bikin id maka fitur tambahannya yaitu bisa edit profile, saved jobs dan apply jobs 
-
-User/Employer bisa post job ( harus bikin id dulu), edit jobs, post live job or draft job, and also can view applicant di job yang berbeda 
+This is my first Fullstack Website for my University project and any improvement will be always updated 
 
 
 
